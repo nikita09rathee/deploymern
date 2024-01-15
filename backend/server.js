@@ -1,5 +1,6 @@
 const express=require("express");
-const app=express();
+const app = express();
+require("dotenv").config();
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const cors = require("cors");
@@ -19,7 +20,8 @@ app.get("/",(req,res)=>{
 app.use("/user", userController);
 app.use(authenticate);
 app.use("/task", taskController);
-app.listen(8080,async()=>{
+const port = process.env.port;
+app.listen(port,async()=>{
       try{
             await connection;
             console.log("db connected");
