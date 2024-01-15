@@ -20,7 +20,7 @@ app.get("/",(req,res)=>{
 app.use("/user", userController);
 app.use(authenticate);
 app.use("/task", taskController);
-const port = process.env.port;
+const port = process.env.PORT;
 app.listen(port,async()=>{
       try{
             await connection;
